@@ -1,6 +1,7 @@
 package pl.coderslab.controller;
 
 import pl.coderslab.model.Employees;
+import pl.coderslab.model.EmployeesDAO;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -22,7 +23,7 @@ public class EmployesController extends HttpServlet {
         response.setContentType("text/html; charset=utf-8");
         request.setCharacterEncoding("utf-8");
         try {
-            List<Employees> list = Employees.loadAll();
+            List<Employees> list = EmployeesDAO.loadAll();
             request.setAttribute("list", list);
             System.out.println(list.toString());
             request.getRequestDispatcher("/index.jsp").forward(request, response);

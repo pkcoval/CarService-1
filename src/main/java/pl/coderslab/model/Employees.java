@@ -121,25 +121,5 @@ public class Employees {
     public Employees() {
     }
 
-    public static List<Employees> loadAll() throws SQLException {
 
-        List<Employees> employees = new ArrayList<>();
-        String sql = "SELECT * FROM employees;";
-        PreparedStatement statement = DbUtil.getConn().prepareStatement(sql);
-        ResultSet rs = statement.executeQuery();
-
-        while (rs.next()) {
-            Employees loadedEmployee = new Employees();
-            loadedEmployee.setId(rs.getInt("id"));
-            loadedEmployee.setName(rs.getString("name"));
-            loadedEmployee.setSurname(rs.getString("surname"));
-            loadedEmployee.setEmail(rs.getString("email"));
-            loadedEmployee.setPerrmision(rs.getInt("perrmision"));
-            loadedEmployee.setAddress(rs.getString("address"));
-            loadedEmployee.setNotice(rs.getString("notice"));
-            loadedEmployee.setSalaryforhour(rs.getInt("salary_for_hour"));
-            employees.add(loadedEmployee);
-        }
-        return employees;
-    }
 }

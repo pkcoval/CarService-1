@@ -15,13 +15,15 @@
         <h3>Pracownicy</h3>
         <br>
         <ul>
-            <c:forEach items="${lista}" var="lista">
-                <li>${lista.name}, ${solution.email}
-                    <a href="/solution?id=${solution.id}">Szczegóły</a>
+            <c:forEach items="${list}" var="lista">
+                <li>${lista.name}, ${lista.email}
+                    <a href="/?id=${lista.id}">Szczegóły</a>
                 </li>
             </c:forEach>
         </ul>
     </div>
 </div>
+
+<% session.getAttribute("name"); %>
 
 <%@ include file="/fragments/footer.jsp" %>

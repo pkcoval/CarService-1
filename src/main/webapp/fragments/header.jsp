@@ -13,7 +13,7 @@
 <meta charset="UTF-8">
 <style>
     .forDiv {
-        width: 25%;
+        width: 20%;
         float: left;
     }
 </style>
@@ -25,11 +25,12 @@
 <body>
 
 <div style="text-align: right; left: 20px">
-    <form method='post' action='LoginServlet'>
+    <form method='post' action='/login'>
         <input type='email' placeholder='Email' name='email'/>
-        <input type='password' placeholder='Hasło' name='amount'/>
+        <input type='password' placeholder='Hasło' name='pass'/>
         <input type='submit' value='Zaloguj'/>
     </form>
+    <% session.getAttribute("name"); %>
 </div>
 
 <div style="text-align: right; left: 20px">
@@ -61,6 +62,12 @@
     <div class="forDiv">
         <form>
             <input type="button" value="Pojazdy" onclick="window.location.href='/vehicles'"/>
+        </form>
+    </div>
+
+    <div class="forDiv">
+        <form>
+            <input type="button" value="Klienci" onclick="window.location.href='/customers'"/>
         </form>
     </div>
 
