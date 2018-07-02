@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context path="/">
+    <Resource name="jdbc/school"
+              auth="Container"
+              type="javax.sql.DataSource"
+              username="sql7245691"
+              password="P7pfxwD48k"
+              driverClassName="com.mysql.jdbc.Driver"
+              connectionProperties="useUnicode=yes;characterEncoding=utf8;"
+              url="jdbc:mysql://sql7.freemysqlhosting.net:3306/sql7245691"
+              maxTotal="100"
+              maxIdle="30"
+              maxWaitMillis="10000"/>
+</Context>
