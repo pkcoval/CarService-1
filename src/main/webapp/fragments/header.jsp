@@ -35,7 +35,7 @@
 
 <div style="text-align: right; left: 20px">
     <form method='post' action='LoginServlet'>
-        Witaj user.name + user.surname
+        Witaj <c:out value="${sessionScope.name}"/> <c:out value="${sessionScope.surname}"/>!
         <input type='submit' value='Wyloguj'/>
     </form>
 </div>
