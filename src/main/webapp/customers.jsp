@@ -49,7 +49,7 @@
             </div>
         </div>
     </c:if>
-<%--editCustomer--%>
+    <%--editCustomer--%>
     <c:if test="${not empty customer}">
         <div style="margin-left: 25%; margin-right: 25%">
             <table border="1">
@@ -60,14 +60,6 @@
                     <th style="width: 300px; text-align: center">Data urodzenia</th>
                     <th style="width: 300px; text-align: center"></th>
                 </tr>
-                <tr style="height: 10px">
-                    <td style="text-align: center">${customer.id}</td>
-                    <td style="text-align: center">${customer.name}</td>
-                    <td style="text-align: center">${customer.surname}</td>
-                    <td style="text-align: center">${customer.birthday}</td>
-                    <td style="text-align: center"></td>
-                </tr>
-
                 <tr>
                     <form method='post' action='customers'>
                         <td style="text-align: center">${customer.id}</td>
@@ -85,7 +77,7 @@
             </table>
         </div>
     </c:if>
-<%--addCustomer--%>
+    <%--addCustomer--%>
     <c:if test="${not empty addinfo}">
         <div style="margin-left: 25%; margin-right: 25%">
             <table border="1">

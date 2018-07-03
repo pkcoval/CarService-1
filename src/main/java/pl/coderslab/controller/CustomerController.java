@@ -66,7 +66,6 @@ public class CustomerController extends HttpServlet {
             request.getRequestDispatcher("/customers.jsp").forward(request, response);
         }
 
-
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -77,6 +76,5 @@ public class CustomerController extends HttpServlet {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
     }
 }

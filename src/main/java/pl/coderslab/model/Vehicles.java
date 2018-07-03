@@ -1,16 +1,35 @@
 package pl.coderslab.model;
 
-import java.util.Date;
+
+import java.sql.Date;
 
 public class Vehicles {
 
     private int id;
     private String model;
     private String brand;
-    private int productionyear;
-    private int regnumber;
-    private Date nextservicedate;
-    private int customer_id ;
+    private int productionYear;
+    private String regNumber;
+    private Date nextServiceDate;
+    private int customer_id;
+
+    public Vehicles() {
+    }
+
+    public Vehicles(String model, String brand, int productionYear, String regnumber, Date nextservicedate, int customer_id) {
+        this.model = model;
+        this.brand = brand;
+        this.productionYear = productionYear;
+        this.regNumber = regnumber;
+        this.nextServiceDate = nextservicedate;
+        this.customer_id = customer_id;
+    }
+
+    public void setId(int id) { this.id = id; }
+
+    public int getId() {
+        return id;
+    }
 
     public String getModel() {
         return model;
@@ -28,28 +47,28 @@ public class Vehicles {
         this.brand = brand;
     }
 
-    public int getProductionyear() {
-        return productionyear;
+    public int getProductionYear() {
+        return productionYear;
     }
 
-    public void setProductionyear(int productionyear) {
-        this.productionyear = productionyear;
+    public void setProductionYear(int productionYear) {
+        this.productionYear = productionYear;
     }
 
-    public int getRegnumber() {
-        return regnumber;
+    public String getRegNumber() {
+        return regNumber;
     }
 
-    public void setRegnumber(int regnumber) {
-        this.regnumber = regnumber;
+    public void setRegNumber(String regNumber) {
+        this.regNumber = regNumber;
     }
 
-    public Date getNextservicedate() {
-        return nextservicedate;
+    public Date getNextServiceDate() {
+        return nextServiceDate;
     }
 
-    public void setNextservicedate(Date nextservicedate) {
-        this.nextservicedate = nextservicedate;
+    public void setNextServiceDate(Date nextServiceDate) {
+        this.nextServiceDate = nextServiceDate;
     }
 
     public int getCustomer_id() {
@@ -60,18 +79,4 @@ public class Vehicles {
         this.customer_id = customer_id;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public Vehicles(String model, String brand, int productionyear, int regnumber, Date nextservicedate, int customer_id) {
-        this.model = model;
-        this.brand = brand;
-        this.productionyear = productionyear;
-        this.regnumber = regnumber;
-        this.nextservicedate = nextservicedate;
-        this.customer_id = customer_id;
-
-
-    }
 }

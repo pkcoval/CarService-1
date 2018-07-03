@@ -81,6 +81,6 @@ public class CustomersDAO extends Customers {
         String query = "DELETE FROM customers WHERE id=?;";
         PreparedStatement sql = DbUtil.getConn().prepareStatement(query);
         sql.setInt(1, id);
-        int executeUpdate = sql.executeUpdate();
+        sql.executeUpdate();
     }
 }

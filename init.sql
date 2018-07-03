@@ -20,9 +20,9 @@ CREATE TABLE vehicles (
   id              INT AUTO_INCREMENT PRIMARY KEY,
   model           VARCHAR(255) NOT NULL,
   brand           VARCHAR(255) NOT NULL,
-  productionyear  INT          NOT NULL,
-  regnumber       VARCHAR(15),
-  nextservicedate DATE,
+  productionYear  INT          NOT NULL,
+  regNumber       VARCHAR(15),
+  nextServiceDate DATE,
   customer_id     INT          NOT NULL,
   FOREIGN KEY (customer_id) REFERENCES customers (id)
 );
