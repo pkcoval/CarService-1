@@ -11,30 +11,75 @@
 
 <br>
 <div>
-    <div style="margin-left: 25%; margin-right: 25%">
-        <table border="1">
-            <tr>
-                <th style="width: 30px; text-align: center">Id</th>
-                <th style="width: 300px; text-align: center">Imie</th>
-                <th style="width: 300px; text-align: center">Nazwisko</th>
-                <th style="width: 300px; text-align: center">Data urodzenia</th>
-                <th style="width: 300px; text-align: center">Edytuj</th>
-                <th style="width: 300px; text-align: center">Usuń</th>
-            </tr>
-            <c:forEach items="${customers}" var="customer" >
+    <c:if test="${not empty customers}">
+        <div style="margin-left: 25%; margin-right: 25%">
+            <table border="1">
+                <tr>
+                    <th style="width: 30px; text-align: center">Id</th>
+                    <th style="width: 300px; text-align: center">Imie</th>
+                    <th style="width: 300px; text-align: center">Nazwisko</th>
+                    <th style="width: 300px; text-align: center">Data urodzenia</th>
+                    <th style="width: 300px; text-align: center">Edytuj</th>
+                    <th style="width: 300px; text-align: center">Usuń</th>
+                </tr>
+                <c:forEach items="${customers}" var="customer">
+                    <tr style="height: 10px">
+                        <td style="text-align: center">${customer.id}</td>
+                        <td style="text-align: center">${customer.name}</td>
+                        <td style="text-align: center">${customer.surname}</td>
+                        <td style="text-align: center">${customer.birthday}</td>
+                        <td style="text-align: center">
+                            <form method="post" action="customers">
+                                <button name="edit" type="submit" value="${customer.id}">Edytuj</button>
+                            </form>
+                        </td>
+                        <td style="text-align: center">
+                            <form method="post" action="customers">
+                                <button name="del" type="submit" value="${customer.id}">Usuń</button>
+                            </form>
+                        </td>
+                    </tr>
+                </c:forEach>
+            </table>
+        </div>
+    </c:if>
+
+    <c:if test="${not empty customer}">
+        <div style="margin-left: 25%; margin-right: 25%">
+            <table border="1">
+                <tr>
+                    <th style="width: 30px; text-align: center">Id</th>
+                    <th style="width: 300px; text-align: center">Imie</th>
+                    <th style="width: 300px; text-align: center">Nazwisko</th>
+                    <th style="width: 300px; text-align: center">Data urodzenia</th>
+                    <th style="width: 300px; text-align: center"></th>
+                </tr>
                 <tr style="height: 10px">
                     <td style="text-align: center">${customer.id}</td>
                     <td style="text-align: center">${customer.name}</td>
                     <td style="text-align: center">${customer.surname}</td>
                     <td style="text-align: center">${customer.birthday}</td>
-                    <td style="text-align: center">Edytuj </td>
-                    <td style="text-align: center"><form method="post" action="customers">
-                        <button name="del" type="submit" value="${customer.id}">Usuń</button>
-                    </form></td>
+                    <td style="text-align: center"></td>
                 </tr>
-            </c:forEach>
-        </table>
-    </div>
+
+                <tr style="height: 10px">
+                    <form method='post' action='customers'>
+                        <td style="text-align: center">${customer.id}</td>
+                        <td style="text-align: center"><input type='text' value='${customer.name}' name='name'/></td>
+                        <td style="text-align: center"><input type='text' value='${customer.surname}' name='surname'/>
+                        </td>
+                        <td style="text-align: center"><input type='date' value='${customer.birthday}' name='birthday'/>
+                        </td>
+                        <td style="text-align: center">
+                            <button name="save" type="submit" value="${customer.id}">Zapisz</button>
+                        </td>
+                    </form>
+                </tr>
+
+            </table>
+        </div>
+    </c:if>
+
 </div>
 
 <%@ include file="/fragments/footer.jsp" %>

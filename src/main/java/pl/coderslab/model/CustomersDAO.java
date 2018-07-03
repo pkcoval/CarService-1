@@ -12,7 +12,7 @@ public class CustomersDAO extends Customers {
 
     public static Customers loadById(int id) throws SQLException {
 
-        PreparedStatement sql = DbUtil.getConn().prepareStatement("SELECT name FROM user_group WHERE id = ?");
+        PreparedStatement sql = DbUtil.getConn().prepareStatement("SELECT * FROM customers WHERE id = ?");
         sql.setInt(1, id);
         ResultSet rs = sql.executeQuery();
         if (rs.next()) {
@@ -54,7 +54,7 @@ public class CustomersDAO extends Customers {
     }
 
     private void update() throws SQLException {
-        String query = "UPDATE user_group SET name=?, surname=?, birth_day=? WHERE id=?";
+        String query = "UPDATE customers SET name=?, surname=?, birth_day=? WHERE id=?";
         PreparedStatement sql = DbUtil.getConn().prepareStatement(query, new String[]{"id"});
         sql.setString(1, getName());
         sql.setString(2, getSurname());
