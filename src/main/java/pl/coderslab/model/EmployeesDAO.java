@@ -10,7 +10,17 @@ import java.util.List;
 
 public class EmployeesDAO extends Employees {
 
-    private static List<Employees> loadAll() throws SQLException {
+    public static void main(String[] args) {
+       try {
+           List<Employees> list = new ArrayList<>();
+           list = loadAll();
+           System.out.println(list.toString());
+       } catch (SQLException e) {
+           System.out.println("blad");
+       }
+    }
+
+    public static List<Employees> loadAll() throws SQLException {
         List<Employees> employees = new ArrayList<>();
         String query = "SELECT * FROM employees;";
         PreparedStatement statement = DbUtil.getConn().prepareStatement(query);
@@ -30,7 +40,7 @@ public class EmployeesDAO extends Employees {
         return employees;
     }
 
-    private static Employees loadPassByEmail(String email) throws SQLException {
+    public static Employees loadPassByEmail(String email) throws SQLException {
 
         String sql = "SELECT * FROM employees where email=?;";
         PreparedStatement statement = DbUtil.getConn().prepareStatement(sql);
@@ -48,7 +58,7 @@ public class EmployeesDAO extends Employees {
         return null;
     }
 
-    private static Employees loadById(int id) throws SQLException {
+    public static Employees loadById(int id) throws SQLException {
 
         String query = "SELECT * FROM employees where id=?;";
         PreparedStatement statement = DbUtil.getConn().prepareStatement(query);
@@ -68,7 +78,7 @@ public class EmployeesDAO extends Employees {
         return loadedEmployee;
     }
 
-    private void insert() throws SQLException {
+    public void insert() throws SQLException {
         String query = "INSERT INTO employees(name, surname, email, perrmision, address, notice, salary_for_hour) VALUES (?,?,?,?,?,?,?);";
         PreparedStatement statement = DbUtil.getConn().prepareStatement(query, new String[]{"id"});
         statement.setString(1, getName());
@@ -86,7 +96,7 @@ public class EmployeesDAO extends Employees {
 
     }
 
-    private void update() throws SQLException {
+    public void update() throws SQLException {
         String query = "UPDATE employees SET name=?, surname=?, email=?, perrmision=?, address=?, notice=?, salary_for_hour=? WHERE id=?;";
         PreparedStatement statement = DbUtil.getConn().prepareStatement(query);
         statement.setString(1, getName());
@@ -106,6 +116,12 @@ public class EmployeesDAO extends Employees {
             update();
         }
 
+    }
+    public void deleteById (int id) throws SQLException {
+        String query = "DELETE * FROM employees WHERE id=?;";
+        PreparedStatement statement = DbUtil.getConn().prepareStatement(query);
+        statement.setInt(1,id);
+        statement.executeUpdate();
     }
 
 
