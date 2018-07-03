@@ -19,25 +19,18 @@
 </style>
 
 <head>
-
     <title>Car Service CRM System</title>
 </head>
 <body>
 
-<div style="text-align: right; left: 20px">
-    <form method='post' action='/login'>
-        <input type='email' placeholder='Email' name='email'/>
-        <input type='password' placeholder='Hasło' name='pass'/>
-        <input type='submit' value='Zaloguj'/>
-    </form>
-    <% session.getAttribute("name"); %>
-</div>
+<div style="height: 30px; text-align: right">
+    <label></label> Jesteś zalogowany jako: <c:out value="${sessionScope.name}"/> <c:out
+        value="${sessionScope.surname}"/>!</label>
 
-<div style="text-align: right; left: 20px">
-    <form method='post' action='LoginServlet'>
-        Witaj <c:out value="${sessionScope.name}"/> <c:out value="${sessionScope.surname}"/>!
-        <input type='submit' value='Wyloguj'/>
+    <form method='post' action='logout'>
+        <div><input type='submit' value='Wyloguj'/></div>
     </form>
+
 </div>
 
 <div>

@@ -61,10 +61,13 @@ public class Employees {
 
     public void setPassword(String password) {
         this.password = BCrypt.hashpw(password, BCrypt.gensalt());
-
     }
 
-    public int getPerrmision() {
+    public void setHashPassword(String password) {
+        this.password = password;
+    }
+
+        public int getPerrmision() {
         return perrmision;
     }
 

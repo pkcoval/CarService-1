@@ -25,11 +25,9 @@ public class EmployesController extends HttpServlet {
         try {
             List<Employees> list = EmployeesDAO.loadAll();
             request.setAttribute("list", list);
-            System.out.println(list.toString());
             request.getRequestDispatcher("/index.jsp").forward(request, response);
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
     }
 }
