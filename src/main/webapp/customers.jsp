@@ -9,39 +9,35 @@
 --%>
 <%@ include file="/fragments/header.jsp" %>
 
-<html>
-<head>
-    <title>Title</title>
-</head>
-<body>
-
-<table border="1">
-    <tr>
-        <th>id </th>
-        <th> Imie </th>
-        <th>Nazwisko </th>
-        <th>Adress </th>
-        <th>Telefon </th>
-        <th>Notatki </th>
-        <th>KosztRoboczogodzin </th>
-    </tr>
-
-    <c:forEach var="customer" items="${lista}" >
-        <tr>
-            <td>${customer.id} </td>
-            <td>${customer.name} </td>
-            <td>${customer.surname} </td>
-            <td>${customer.address} </td>
-            <td>${customer.phone} </td>
-            <td>${customer.notice} </td>
-            <td>${customer.salaryforhour} </td>
-        </tr>
-    </c:forEach>
-</table>
-
-</body>
-</html>
-
-
+<br>
+<div>
+    <div style="margin-left: 25%; margin-right: 25%">
+        <table border="1">
+            <tr>
+                <th style="width: 30px; text-align: center">Id</th>
+                <th style="width: 300px; text-align: center">Imie</th>
+                <th style="width: 300px; text-align: center">Nazwisko</th>
+                <th style="width: 300px; text-align: center">Data urodzenia</th>
+                <th style="width: 300px; text-align: center">Edytuj</th>
+                <th style="width: 300px; text-align: center">Usuń</th>
+            </tr>
+            <c:forEach items="${customers}" var="customer" >
+                <tr style="height: 10px">
+                    <td style="text-align: center">${customer.id}</td>
+                    <td style="text-align: center">${customer.name}</td>
+                    <td style="text-align: center">${customer.surname}</td>
+                    <td style="text-align: center">${customer.birthday}</td>
+                    <td style="text-align: center">Edytuj </td>
+                    <td style="text-align: center"><form method="post" action="customers">
+                        <button name="del" type="submit" value="${customer.id}">Usuń</button>
+                    </form></td>
+                </tr>
+            </c:forEach>
+        </table>
+    </div>
+</div>
 
 <%@ include file="/fragments/footer.jsp" %>
+
+
+

@@ -31,7 +31,7 @@ CREATE TABLE customers (
   id      INT AUTO_INCREMENT PRIMARY KEY,
   name    varchar(255) NOT NULL,
   surname VARCHAR(255) NOT NULL,
-  birtday DATE
+  birthday DATE
 );
 
 CREATE TABLE orders (

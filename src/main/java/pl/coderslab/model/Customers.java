@@ -1,13 +1,21 @@
 package pl.coderslab.model;
 
-import java.util.Date;
+
+import java.sql.Date;
 
 public class Customers {
 
     private int id;
     private String name;
     private String surname;
-    private Date birtday;
+    private Date birthday;
+
+    public Customers() {
+    }
+
+    void setId(int id) {
+        this.id = id;
+    }
 
     public void setName(String name) {
         this.name = name;
@@ -17,8 +25,8 @@ public class Customers {
         this.surname = surname;
     }
 
-    public void setBirtday(Date birtday) {
-        this.birtday = birtday;
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
     }
 
     public String getName() {
@@ -29,8 +37,8 @@ public class Customers {
         return surname;
     }
 
-    public Date getBirtday() {
-        return birtday;
+    public Date getBirthday() {
+        return birthday;
     }
 
     public int getId() {
@@ -40,6 +48,6 @@ public class Customers {
     public Customers(String name, String surname, Date birtday) {
         this.name = name;
         this.surname = surname;
-        this.birtday = birtday;
+        this.birthday = birtday;
     }
 }
