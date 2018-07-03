@@ -20,6 +20,7 @@ public class CustomerController extends HttpServlet {
         String del = request.getParameter("del");
         String edit = request.getParameter("edit");
         String save = request.getParameter("save");
+        String add = request.getParameter("add");
 
         if (del != null && !del.isEmpty()) {
             try {
@@ -33,7 +34,6 @@ public class CustomerController extends HttpServlet {
         if (edit != null && !edit.isEmpty()) {
             try {
                 Customers customer = CustomersDAO.loadById(Integer.parseInt(edit));
-                System.out.println(customer);
                 request.setAttribute("customer", customer);
                 request.getRequestDispatcher("/customers.jsp").forward(request, response);
             } catch (SQLException e) {
@@ -44,7 +44,11 @@ public class CustomerController extends HttpServlet {
         if (save != null && !save.isEmpty()) {
 
             Customers customer = new CustomersDAO();
-            customer.setId(Integer.parseInt(request.getParameter("save")));
+            if (Integer.parseInt(request.getParameter("save"))== 0) {
+                customer.setId(0);
+            } else {
+                customer.setId(Integer.parseInt(request.getParameter("save")));
+            }
             customer.setName(request.getParameter("name"));
             customer.setSurname(request.getParameter("surname"));
             customer.setBirthday(Date.valueOf(request.getParameter("birthday")));
@@ -55,12 +59,19 @@ public class CustomerController extends HttpServlet {
                 e.printStackTrace();
             }
         }
+
+        if (add != null && !add.isEmpty()) {
+
+            request.setAttribute("addinfo", add);
+            request.getRequestDispatcher("/customers.jsp").forward(request, response);
+        }
+
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             List<Customers> customers = CustomersDAO.loadAll();
-            System.out.println(customers.toString());
             request.setAttribute("customers", customers);
             request.getRequestDispatcher("/customers.jsp").forward(request, response);
         } catch (SQLException e) {

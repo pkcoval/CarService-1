@@ -10,6 +10,7 @@
 <%@ include file="/fragments/header.jsp" %>
 
 <br>
+<%--showAll--%>
 <div>
     <c:if test="${not empty customers}">
         <div style="margin-left: 25%; margin-right: 25%">
@@ -41,9 +42,14 @@
                     </tr>
                 </c:forEach>
             </table>
+            <div>
+                <form style="width: 100%" method="post" action="">
+                    <button style="width: 600px" name="add" value="add" type="submit">Dodaj użytkownika</button>
+                </form>
+            </div>
         </div>
     </c:if>
-
+<%--editCustomer--%>
     <c:if test="${not empty customer}">
         <div style="margin-left: 25%; margin-right: 25%">
             <table border="1">
@@ -62,7 +68,7 @@
                     <td style="text-align: center"></td>
                 </tr>
 
-                <tr style="height: 10px">
+                <tr>
                     <form method='post' action='customers'>
                         <td style="text-align: center">${customer.id}</td>
                         <td style="text-align: center"><input type='text' value='${customer.name}' name='name'/></td>
@@ -76,6 +82,29 @@
                     </form>
                 </tr>
 
+            </table>
+        </div>
+    </c:if>
+<%--addCustomer--%>
+    <c:if test="${not empty addinfo}">
+        <div style="margin-left: 25%; margin-right: 25%">
+            <table border="1">
+                <tr>
+                    <th style="width: 300px; text-align: center">Imie</th>
+                    <th style="width: 300px; text-align: center">Nazwisko</th>
+                    <th style="width: 300px; text-align: center">Data urodzenia</th>
+                    <th style="width: 300px; text-align: center"></th>
+                </tr>
+                <tr>
+                    <form method='post' action='customers'>
+                        <td style="text-align: center"><input type='text' name='name'/></td>
+                        <td style="text-align: center"><input type='text' name='surname'/></td>
+                        <td style="text-align: center"><input type='date' name='birthday'/></td>
+                        <td style="text-align: center">
+                            <button name="save" type="submit" value="0">Zapisz</button>
+                        </td>
+                    </form>
+                </tr>
             </table>
         </div>
     </c:if>
