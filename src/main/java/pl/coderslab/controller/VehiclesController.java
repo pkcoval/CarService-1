@@ -25,7 +25,7 @@ public class VehiclesController extends HttpServlet {
         if (del != null && !del.isEmpty()) {
             try {
                 VehiclesDAO.deleteByID(Integer.parseInt(del));
-                request.getRequestDispatcher("/vehicles.jsp").forward(request, response);
+                response.sendRedirect("/vehicles");
             } catch (SQLException e) {
                 e.printStackTrace();
             }

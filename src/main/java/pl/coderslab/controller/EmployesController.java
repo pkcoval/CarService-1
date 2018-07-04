@@ -25,7 +25,8 @@ public class EmployesController extends HttpServlet {
         if (del != null && !del.isEmpty()) {
             try {
                 EmployeesDAO.deleteById(Integer.parseInt(del));
-                request.getRequestDispatcher("/index.jsp").forward(request, response);
+                response.sendRedirect("/employees");
+
             } catch (SQLException e) {
                 e.printStackTrace();
             }

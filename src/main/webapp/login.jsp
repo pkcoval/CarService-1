@@ -25,8 +25,8 @@
     <div style="margin-left: 25%; margin-right: 25%">
         <div style="text-align: center; left: 20px">
             <form method='post' action='login'>
-                <div><input type='email' placeholder='Podaj email' name='email'/></div>
-                <div><input type='password' placeholder='Podaj hasło' name='pass'/></div>
+                <div><input type='email' value="kowalski@wp.pl" name='email'/></div>
+                <div><input type='password' value="smurf" name='pass'/></div>
                 <div><input type='submit' value='Zaloguj'/></div>
             </form>
 

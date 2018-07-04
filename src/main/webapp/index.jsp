@@ -43,7 +43,7 @@
                             </form>
                         </td>
                         <td style="text-align: center">
-                            <form method="post" action="vehicles">
+                            <form method="post" action="employees">
                                 <button name="del" type="submit" value="${employee.id}">Usuń</button>
                             </form>
                         </td>

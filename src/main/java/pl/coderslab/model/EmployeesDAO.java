@@ -109,7 +109,7 @@ public class EmployeesDAO extends Employees {
 
     }
     public static void deleteById (int id) throws SQLException {
-        String query = "DELETE * FROM employees WHERE id=?;";
+        String query = "DELETE FROM employees WHERE id=?;";
         PreparedStatement statement = DbUtil.getConn().prepareStatement(query);
         statement.setInt(1,id);
         statement.executeUpdate();

@@ -25,7 +25,7 @@ public class CustomerController extends HttpServlet {
         if (del != null && !del.isEmpty()) {
             try {
                 CustomersDAO.deleteByID(Integer.parseInt(del));
-                request.getRequestDispatcher("/customers.jsp").forward(request, response);
+                response.sendRedirect("/customers");
             } catch (SQLException e) {
                 e.printStackTrace();
             }

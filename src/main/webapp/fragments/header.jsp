@@ -13,7 +13,7 @@
 <meta charset="UTF-8">
 <style>
     .forDiv {
-        width: 20%;
+        width: 25%;
         float: left;
     }
 </style>
@@ -34,11 +34,6 @@
 </div>
 
 <div>
-    <div class="forDiv">
-        <form>
-            <input type="button" value="Główna" onclick="window.location.href='..'"/>
-        </form>
-    </div>
 
     <div class="forDiv">
         <form>
