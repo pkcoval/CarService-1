@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EmployeesDAO {
+public class EmployeesDAO extends Employees {
 
     //    List<Employees> findById();
 //    List<Employees> findByName();
@@ -31,7 +31,7 @@ public class EmployeesDAO {
             loadedEmployee.setPerrmision(rs.getInt("perrmision"));
             loadedEmployee.setAddress(rs.getString("address"));
             loadedEmployee.setNotice(rs.getString("notice"));
-            loadedEmployee.setSalaryforhour(rs.getInt("salary_for_hour"));
+            loadedEmployee.setSalaryForHour(rs.getInt("salary_for_hour"));
             employees.add(loadedEmployee);
         }
         return employees;

@@ -1,13 +1,6 @@
 package pl.coderslab.model;
 
 import org.mindrot.jbcrypt.BCrypt;
-import pl.coderslab.DbUtil;
-
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Employees {
 
@@ -25,7 +18,7 @@ public class Employees {
     private String address;
     private int phone;
     private String notice;
-    private int salaryforhour;
+    private int salaryForHour;
 
     public int getId() {
         return id;
@@ -100,12 +93,12 @@ public class Employees {
         this.notice = notice;
     }
 
-    public int getSalaryforhour() {
-        return salaryforhour;
+    public int getSalaryForHour() {
+        return salaryForHour;
     }
 
-    public void setSalaryforhour(int salaryforhour) {
-        this.salaryforhour = salaryforhour;
+    public void setSalaryForHour(int salaryForHour) {
+        this.salaryForHour = salaryForHour;
     }
 
     public Employees(int id, String name, String surname, String email, String password, int perrmision, String address, int phone, String notice, int salaryforhour) {
@@ -118,7 +111,7 @@ public class Employees {
         this.address = address;
         this.phone = phone;
         this.notice = notice;
-        this.salaryforhour = salaryforhour;
+        this.salaryForHour = salaryforhour;
     }
 
     public Employees() {

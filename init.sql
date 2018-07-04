@@ -13,7 +13,7 @@ CREATE TABLE employees (
   address       TEXT,
   phone         INT,
   notice        TEXT,
-  salaryforhour DECIMAL(10, 2)
+  salaryForHour DECIMAL(10, 2)
 );
 
 CREATE TABLE vehicles (
@@ -36,7 +36,7 @@ CREATE TABLE customers (
 
 CREATE TABLE orders (
   id               INT AUTO_INCREMENT PRIMARY KEY,
-  takecar          DATE NOT NULL,
+  takeCar          DATE NOT NULL,
   planstartrepair  DATE,
   startrepair      DATE,
   descriptionfault TEXT,
@@ -46,7 +46,7 @@ CREATE TABLE orders (
   status_id        INT NOT NULL ,
   costforcustomer  DECIMAL(10, 2),
   costparts        DECIMAL(10, 2),
-  salaryforhour    DECIMAL(10, 2),
+  salaryForHour    DECIMAL(10, 2),
   amountofhour     INT,
   FOREIGN KEY (employee_id) REFERENCES employees (id),
   FOREIGN KEY (vehicles_id) REFERENCES vehicles (id),
