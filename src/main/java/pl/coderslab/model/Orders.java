@@ -14,12 +14,17 @@ public class Orders {
     private int employee_id ;
     private int vehicles_id ;
     private int status_id ;
+
+
+
     private double costforcustomer ;
     private double costparts ;
     private double salaryforhour ;
     private int amountofhour ;
 
     public int getId() { return id; }
+
+    public void setId(int id) { this.id = id; }
 
     public Date getTakecar() { return takecar; }
 
@@ -87,5 +92,8 @@ public class Orders {
         this.costparts = costparts;
         this.salaryforhour = salaryforhour;
         this.amountofhour = amountofhour;
+    }
+
+    public Orders() {
     }
 }
