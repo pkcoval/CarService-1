@@ -9,7 +9,6 @@ public class Orders {
     private Date planStartRepair;
     private Date startRepair;
     private String descriptionFault;
-    private String nextServiceDate;
     private String descriptionRepair;
     private int employee_id;
     private int vehicles_id;
@@ -60,14 +59,6 @@ public class Orders {
 
     public void setDescriptionFault(String descriptionFault) {
         this.descriptionFault = descriptionFault;
-    }
-
-    public String getNextServiceDate() {
-        return nextServiceDate;
-    }
-
-    public void setNextServiceDate(String nextServiceDate) {
-        this.nextServiceDate = nextServiceDate;
     }
 
     public String getDescriptionRepair() {

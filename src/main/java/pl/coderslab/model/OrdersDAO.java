@@ -23,7 +23,6 @@ public class OrdersDAO extends Orders {
             order.setPlanStartRepair(resultSet.getDate("planstartrepair"));
             order.setStartRepair(resultSet.getDate("startrepair"));
             order.setDescriptionFault(resultSet.getString("descriptionfault"));
-            order.setNextServiceDate(resultSet.getString("nextservicedate"));
             order.setDescriptionRepair(resultSet.getString("descriptionrepair"));
             order.setEmployee_id(resultSet.getInt("employee_id"));
             order.setVehicles_id(resultSet.getInt("vehicles_id"));
@@ -50,7 +49,6 @@ public class OrdersDAO extends Orders {
             order.setPlanStartRepair(resultSet.getDate("planstartrepair"));
             order.setStartRepair(resultSet.getDate("startrepair"));
             order.setDescriptionFault(resultSet.getString("descriptionfault"));
-            order.setNextServiceDate(resultSet.getString("nextservicedate"));
             order.setDescriptionRepair(resultSet.getString("descriptionrepair"));
             order.setEmployee_id(resultSet.getInt("employee_id"));
             order.setVehicles_id(resultSet.getInt("vehicles_id"));

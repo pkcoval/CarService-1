@@ -22,71 +22,71 @@ public class OrdersController extends HttpServlet {
         String save = request.getParameter("save");
         String add = request.getParameter("add");
 
-//        if (del != null && !del.isEmpty()) {
-//            try {
-//                OrdersDAO.deleteByID(Integer.parseInt(del));
-//                request.getRequestDispatcher("/orders.jsp").forward(request, response);
-//            } catch (SQLException e) {
-//                e.printStackTrace();
-//            }
-//        }
-//
-//        if (edit != null && !edit.isEmpty()) {
-//            try {
-//                Orders order = OrdersDAO.loadById(Integer.parseInt(edit));
-//                request.setAttribute("order", order);
-//                request.getRequestDispatcher("/orders.jsp").forward(request, response);
-//            } catch (SQLException e) {
-//                e.printStackTrace();
-//            }
-//        }
-//
-//        if (save != null && !save.isEmpty()) {
-//
-//            Orders order = new OrdersDAO();
-//            if (Integer.parseInt(request.getParameter("save")) == 0) {
-//                order.setId(0);
-//            } else {
-//                order.setId(Integer.parseInt(request.getParameter("save")));
-//            }
-//            order.setTakeCar(Date.valueOf(request.getParameter("takeCar")));
-//            order.setPlanStartRepair(Date.valueOf(request.getParameter("planStartRepair")));
-//            order.setStartRepair(Date.valueOf(request.getParameter("startRepair")));
-//            order.setDescriptionFault(request.getParameter("descriptionFault"));
-//            order.setDescriptionRepair(request.getParameter("descriptionRepair"));
-//            order.setEmployee_id(Integer.parseInt(request.getParameter("employee_id")));
-//            order.setVehicles_id(Integer.parseInt(request.getParameter("vehicle_id")));
-//            order.setStatus_id(Integer.parseInt(request.getParameter("status_id")));
-//            order.setCostForCustomer(Double.parseDouble(request.getParameter("costForCustomer")));
-//            order.setCostParts(Double.parseDouble(request.getParameter("costParts")));
-//            order.setSalaryForHour(Double.parseDouble(request.getParameter("salaryForHour")));
-//            order.setAmountOfHour(Integer.parseInt(request.getParameter("amountOfHour")));
-//            try {
-//                ((OrdersDAO) order).saveToDB();
-//                response.sendRedirect("/orders");
-//            } catch (SQLException e) {
-//                response.getWriter().append("Nie udało się zapisać");
-//                request.getRequestDispatcher("/orders.jsp");
-//            }
-//        }
-//
-//        if (add != null && !add.isEmpty()) {
-//
-//            request.setAttribute("addinfo", add);
-//            request.getRequestDispatcher("/orders.jsp").forward(request, response);
-//        }
-//
+        if (del != null && !del.isEmpty()) {
+            try {
+                OrdersDAO.deleteById(Integer.parseInt(del));
+                response.sendRedirect("/orders");
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        if (edit != null && !edit.isEmpty()) {
+            try {
+                Orders order = OrdersDAO.loadById(Integer.parseInt(edit));
+                request.setAttribute("order", order);
+                request.getRequestDispatcher("/orders.jsp").forward(request, response);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        if (save != null && !save.isEmpty()) {
+
+            Orders order = new OrdersDAO();
+            if (Integer.parseInt(request.getParameter("save")) == 0) {
+                order.setId(0);
+            } else {
+                order.setId(Integer.parseInt(request.getParameter("save")));
+            }
+            order.setTakeCar(Date.valueOf(request.getParameter("takeCar")));
+            order.setPlanStartRepair(Date.valueOf(request.getParameter("planStartRepair")));
+            order.setStartRepair(Date.valueOf(request.getParameter("startRepair")));
+            order.setDescriptionFault(request.getParameter("descriptionFault"));
+            order.setDescriptionRepair(request.getParameter("descriptionRepair"));
+            order.setEmployee_id(Integer.parseInt(request.getParameter("employee_id")));
+            order.setVehicles_id(Integer.parseInt(request.getParameter("vehicles_id")));
+            order.setStatus_id(Integer.parseInt(request.getParameter("status_id")));
+            order.setCostForCustomer(Double.parseDouble(request.getParameter("costForCustomer")));
+            order.setCostParts(Double.parseDouble(request.getParameter("costParts")));
+            order.setSalaryForHour(Double.parseDouble(request.getParameter("salaryForHour")));
+            order.setAmountOfHour(Integer.parseInt(request.getParameter("amountOfHour")));
+            try {
+                ((OrdersDAO) order).saveToDb();
+                response.sendRedirect("/orders");
+            } catch (SQLException e) {
+                response.getWriter().append("Nie udało się zapisać");
+                request.getRequestDispatcher("/orders.jsp");
+            }
+        }
+
+        if (add != null && !add.isEmpty()) {
+
+            request.setAttribute("addinfo", add);
+            request.getRequestDispatcher("/orders.jsp").forward(request, response);
+        }
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-//        try {
-//            List<Orders> orders = OrdersDAO.loadAll();
-//            request.setAttribute("orders", orders);
-//            request.getRequestDispatcher("/orders").forward(request, response);
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
+        try {
+            List<Orders> orders = OrdersDAO.loadAll();
+            request.setAttribute("orders", orders);
+            request.getRequestDispatcher("/orders.jsp").forward(request, response);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
     }
 }
