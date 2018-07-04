@@ -65,7 +65,8 @@ public class OrdersController extends HttpServlet {
 //                ((OrdersDAO) order).saveToDB();
 //                response.sendRedirect("/orders");
 //            } catch (SQLException e) {
-//                e.printStackTrace();
+//                response.getWriter().append("Nie udało się zapisać");
+//                request.getRequestDispatcher("/orders.jsp");
 //            }
 //        }
 //

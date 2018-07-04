@@ -22,49 +22,50 @@ public class EmployesController extends HttpServlet {
         String save = request.getParameter("save");
         String add = request.getParameter("add");
 
-//        if (del != null && !del.isEmpty()) {
-//            try {
-//                EmployeesDAO.deleteByID(Integer.parseInt(del));
-//                request.getRequestDispatcher("/index.jsp").forward(request, response);
-//            } catch (SQLException e) {
-//                e.printStackTrace();
-//            }
-//        }
+        if (del != null && !del.isEmpty()) {
+            try {
+                EmployeesDAO.deleteById(Integer.parseInt(del));
+                request.getRequestDispatcher("/index.jsp").forward(request, response);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
 
-//        if (edit != null && !edit.isEmpty()) {
-//            try {
-//                Employees employee = EmployeesDAO.loadById(Integer.parseInt(edit));
-//                request.setAttribute("employee", employee);
-//                request.getRequestDispatcher("/index.jsp").forward(request, response);
-//            } catch (SQLException e) {
-//                e.printStackTrace();
-//            }
-//        }
+        if (edit != null && !edit.isEmpty()) {
+            try {
+                Employees employee = EmployeesDAO.loadById(Integer.parseInt(edit));
+                request.setAttribute("employee", employee);
+                request.getRequestDispatcher("/index.jsp").forward(request, response);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
 
-//        if (save != null && !save.isEmpty()) {
-//
-//            Employees employee = new EmployeesDAO();
-//            if (Integer.parseInt(request.getParameter("save"))== 0) {
-//                employee.setId(0);
-//            } else {
-//                employee.setId(Integer.parseInt(request.getParameter("save")));
-//            }
-//            employee.setName(request.getParameter("name"));
-//            employee.setSurname(request.getParameter("surname"));
-//            employee.setEmail(request.getParameter("email"));
-//            employee.setPerrmision(Integer.parseInt(request.getParameter("perrmision")));
-//            employee.setAddress(request.getParameter("address"));
-//            employee.setPhone(Integer.parseInt(request.getParameter("phone")));
-//            employee.setNotice(request.getParameter("notice"));
-//            employee.setSalaryForHour(Integer.parseInt(request.getParameter("salary")));
-//
-//            try {
-//                ((EmployeesDAO) employee).saveToDB();
-//                response.sendRedirect("/employees");
-//            } catch (SQLException e) {
-//                e.printStackTrace();
-//            }
-//        }
+        if (save != null && !save.isEmpty()) {
+
+            Employees employee = new EmployeesDAO();
+            if (Integer.parseInt(request.getParameter("save"))== 0) {
+                employee.setId(0);
+            } else {
+                employee.setId(Integer.parseInt(request.getParameter("save")));
+            }
+            employee.setName(request.getParameter("name"));
+            employee.setSurname(request.getParameter("surname"));
+            employee.setEmail(request.getParameter("email"));
+            employee.setPassword(request.getParameter("password"));
+            employee.setAddress(request.getParameter("address"));
+            employee.setPhone(Integer.parseInt(request.getParameter("phone")));
+            employee.setNotice(request.getParameter("notice"));
+            employee.setSalaryForHour(Integer.parseInt(request.getParameter("salary")));
+
+            try {
+                ((EmployeesDAO) employee).saveToDb();
+                response.sendRedirect("/employees");
+            } catch (SQLException e) {
+                response.getWriter().append("Nie udało się zapisać");
+                request.getRequestDispatcher("/index.jsp");
+            }
+        }
 
         if (add != null && !add.isEmpty()) {
 
@@ -78,7 +79,7 @@ public class EmployesController extends HttpServlet {
         try {
             List<Employees> employees = EmployeesDAO.loadAll();
             request.setAttribute("employees", employees);
-            request.getRequestDispatcher("/employees").forward(request, response);
+            request.getRequestDispatcher("/index.jsp").forward(request, response);
         } catch (SQLException e) {
             e.printStackTrace();
         }

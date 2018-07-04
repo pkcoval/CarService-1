@@ -48,7 +48,7 @@ public class LoginServlet extends HttpServlet {
                     request.getSession().setAttribute("employees", employees);
                     request.getSession().setAttribute("name", employees.getName());
                     request.getSession().setAttribute("surname", employees.getSurname());
-                    response.sendRedirect(request.getContextPath() + "/");
+                    response.sendRedirect(request.getContextPath() + "/employees");
                     return;
                 } else {
                     messages.put("login", "Wrong password, please try again");

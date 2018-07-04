@@ -56,7 +56,8 @@ public class CustomerController extends HttpServlet {
                 ((CustomersDAO) customer).saveToDB();
                 response.sendRedirect("/customers");
             } catch (SQLException e) {
-                e.printStackTrace();
+                response.getWriter().append("Nie udało się zapisać");
+                request.getRequestDispatcher("/customers.jsp");
             }
         }
 

@@ -59,7 +59,8 @@ public class VehiclesController extends HttpServlet {
                 ((VehiclesDAO) vehicle).saveToDB();
                 response.sendRedirect("/vehicles");
             } catch (SQLException e) {
-                e.printStackTrace();
+                response.getWriter().append("Nie udało się zapisać");
+                request.getRequestDispatcher("/vehicles.jsp");
             }
         }
 

@@ -17,18 +17,18 @@
             <table border="1">
                 <tr>
                     <th style="width: 30px; text-align: center">Id</th>
-                    <th style="width: 300px; text-align: center">Imię</th>
-                    <th style="width: 300px; text-align: center">Nazwisko</th>
-                    <th style="width: 300px; text-align: center">Email</th>
-                    <th style="width: 300px; text-align: center">Adres</th>
-                    <th style="width: 300px; text-align: center">Numer telefonu</th>
-                    <th style="width: 300px; text-align: center">Notatki</th>
-                    <th style="width: 300px; text-align: center">Stawka godzinowa</th>
-                    <th style="width: 300px; text-align: center"></th>
-                    <th style="width: 300px; text-align: center"></th>
+                    <th style="width: 200px; text-align: center">Imię</th>
+                    <th style="width: 200px; text-align: center">Nazwisko</th>
+                    <th style="width: 200px; text-align: center">Email</th>
+                    <th style="width: 200px; text-align: center">Adres</th>
+                    <th style="width: 200px; text-align: center">Numer telefonu</th>
+                    <th style="width: 200px; text-align: center">Notatki</th>
+                    <th style="width: 200px; text-align: center">Stawka godzinowa</th>
+                    <th style="width: 200px; text-align: center"></th>
+                    <th style="width: 200px; text-align: center"></th>
                 </tr>
                 <c:forEach items="${employees}" var="employee">
-                    <tr style="height: 10px">
+                    <tr>
                         <td style="text-align: center">${employee.id}</td>
                         <td style="text-align: center">${employee.name}</td>
                         <td style="text-align: center">${employee.surname}</td>
@@ -39,12 +39,12 @@
                         <td style="text-align: center">${employee.salaryForHour}</td>
                         <td style="text-align: center">
                             <form method="post" action="employees">
-                                <button name="edit" type="submit" value="${employees.id}">Edytuj</button>
+                                <button name="edit" type="submit" value="${employee.id}">Edytuj</button>
                             </form>
                         </td>
                         <td style="text-align: center">
                             <form method="post" action="vehicles">
-                                <button name="del" type="submit" value="${employees.id}">Usuń</button>
+                                <button name="del" type="submit" value="${employee.id}">Usuń</button>
                             </form>
                         </td>
                     </tr>
@@ -57,27 +57,30 @@
             </div>
         </div>
     </c:if>
+</div>
+<div>
     <%--editEmployee--%>
     <c:if test="${not empty employee}">
         <div style="margin-left: 25%; margin-right: 25%">
             <table border="1">
                 <tr>
                     <th style="width: 30px; text-align: center">Id</th>
-                    <th style="width: 300px; text-align: center">Imię</th>
-                    <th style="width: 300px; text-align: center">Nazwisko</th>
-                    <th style="width: 300px; text-align: center">Email</th>
-                    <th style="width: 300px; text-align: center">Adres</th>
-                    <th style="width: 300px; text-align: center">Numer telefonu</th>
-                    <th style="width: 300px; text-align: center">Notatki</th>
-                    <th style="width: 300px; text-align: center">Stawka godzinowa</th>
-                    <th style="width: 300px; text-align: center"></th>
-                    <th style="width: 300px; text-align: center"></th>
+                    <th style="width: 200px; text-align: center">Imię</th>
+                    <th style="width: 200px; text-align: center">Nazwisko</th>
+                    <th style="width: 200px; text-align: center">Email</th>
+                    <th style="width: 200px; text-align: center">Adres</th>
+                    <th style="width: 200px; text-align: center">Numer telefonu</th>
+                    <th style="width: 200px; text-align: center">Notatki</th>
+                    <th style="width: 200px; text-align: center">Stawka godzinowa</th>
+                    <th style="width: 200px; text-align: center"></th>
+                    <th style="width: 200px; text-align: center"></th>
                 </tr>
                 <tr>
                     <form method='post' action='employees'>
                         <td style="text-align: center">${employee.id}</td>
                         <td style="text-align: center"><input type='text' value='${employee.name}' name='name'/></td>
-                        <td style="text-align: center"><input type='text' value='${employee.surname}' name='surname'/></td>
+                        <td style="text-align: center"><input type='text' value='${employee.surname}' name='surname'/>
+                        </td>
                         <td style="text-align: center"><input type='email' value='${employee.email}'
                                                               name='email'/></td>
                         <td style="text-align: center"><input type='text' value='${employee.address}'
@@ -96,26 +99,30 @@
             </table>
         </div>
     </c:if>
+</div>
+<div>
     <%--addEmployee--%>
     <c:if test="${not empty addinfo}">
         <div style="margin-left: 25%; margin-right: 25%">
             <table border="1">
                 <tr>
-                    <th style="width: 300px; text-align: center">Imię</th>
-                    <th style="width: 300px; text-align: center">Nazwisko</th>
-                    <th style="width: 300px; text-align: center">Email</th>
-                    <th style="width: 300px; text-align: center">Adres</th>
-                    <th style="width: 300px; text-align: center">Numer telefonu</th>
-                    <th style="width: 300px; text-align: center">Notatki</th>
-                    <th style="width: 300px; text-align: center">Stawka godzinowa</th>
-                    <th style="width: 300px; text-align: center"></th>
-                    <th style="width: 300px; text-align: center"></th>
+                    <th style="text-align: center">Imię</th>
+                    <th style="text-align: center">Nazwisko</th>
+                    <th style="text-align: center">Email</th>
+                    <th style="text-align: center">Hasło</th>
+                    <th style="text-align: center">Adres</th>
+                    <th style="text-align: center">Numer telefonu</th>
+                    <th style="text-align: center">Notatki</th>
+                    <th style="text-align: center">Stawka godzinowa</th>
+                    <th style="text-align: center"></th>
+                    <th style="text-align: center"></th>
                 </tr>
                 <tr>
                     <form method='post' action='employees'>
                         <td style="text-align: center"><input type='text' name='name'/></td>
                         <td style="text-align: center"><input type='text' name='surname'/></td>
                         <td style="text-align: center"><input type='email' name='email'/></td>
+                        <td style="text-align: center"><input type='password' name='password'/></td>
                         <td style="text-align: center"><input type='text' name='address'/></td>
                         <td style="text-align: center"><input type='number' name='phone'/></td>
                         <td style="text-align: center"><input type='text' name='notice'/></td>
@@ -128,8 +135,13 @@
             </table>
         </div>
     </c:if>
-
 </div>
+
+<div>
+
+
+
+
 
 <%@ include file="/fragments/footer.jsp" %>
 

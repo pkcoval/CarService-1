@@ -10,15 +10,6 @@ import java.util.List;
 
 public class EmployeesDAO extends Employees {
 
-    public static void main(String[] args) {
-       try {
-           List<Employees> list = new ArrayList<>();
-           list = loadAll();
-           System.out.println(list.toString());
-       } catch (SQLException e) {
-           System.out.println("blad");
-       }
-    }
 
     public static List<Employees> loadAll() throws SQLException {
         List<Employees> employees = new ArrayList<>();
@@ -26,16 +17,16 @@ public class EmployeesDAO extends Employees {
         PreparedStatement statement = DbUtil.getConn().prepareStatement(query);
         ResultSet rs = statement.executeQuery();
         while (rs.next()) {
-            Employees loadedEmployee = new Employees();
-            loadedEmployee.setId(rs.getInt("id"));
-            loadedEmployee.setName(rs.getString("name"));
-            loadedEmployee.setSurname(rs.getString("surname"));
-            loadedEmployee.setEmail(rs.getString("email"));
-            loadedEmployee.setPerrmision(rs.getInt("perrmision"));
-            loadedEmployee.setAddress(rs.getString("address"));
-            loadedEmployee.setNotice(rs.getString("notice"));
-            loadedEmployee.setSalaryForHour(rs.getInt("salary_for_hour"));
-            employees.add(loadedEmployee);
+            Employees employee = new Employees();
+            employee.setId(rs.getInt("id"));
+            employee.setName(rs.getString("name"));
+            employee.setSurname(rs.getString("surname"));
+            employee.setEmail(rs.getString("email"));
+            employee.setPerrmision(rs.getInt("perrmision"));
+            employee.setAddress(rs.getString("address"));
+            employee.setNotice(rs.getString("notice"));
+            employee.setSalaryForHour(rs.getInt("salary_for_hour"));
+            employees.add(employee);
         }
         return employees;
     }
@@ -48,12 +39,12 @@ public class EmployeesDAO extends Employees {
         ResultSet rs = statement.executeQuery();
 
         while (rs.next()) {
-            Employees employees = new Employees();
-            employees.setName(rs.getString("name"));
-            employees.setSurname(rs.getString("surname"));
-            employees.setHashPassword(rs.getString("password"));
-            employees.setPerrmision(rs.getInt("perrmision"));
-            return employees;
+            Employees employee = new Employees();
+            employee.setName(rs.getString("name"));
+            employee.setSurname(rs.getString("surname"));
+            employee.setHashPassword(rs.getString("password"));
+            employee.setPerrmision(rs.getInt("perrmision"));
+            return employee;
         }
         return null;
     }
@@ -64,48 +55,48 @@ public class EmployeesDAO extends Employees {
         PreparedStatement statement = DbUtil.getConn().prepareStatement(query);
         statement.setInt(1, id);
         ResultSet resultSet = statement.executeQuery();
-        Employees loadedEmployee = new Employees();
+        Employees employee = new Employees();
         while (resultSet.next()) {
-            loadedEmployee.setId(id);
-            loadedEmployee.setName(resultSet.getString("name"));
-            loadedEmployee.setSurname(resultSet.getString("surname"));
-            loadedEmployee.setEmail(resultSet.getString("email"));
-            loadedEmployee.setPerrmision(resultSet.getInt("perrmision"));
-            loadedEmployee.setAddress(resultSet.getString("address"));
-            loadedEmployee.setNotice(resultSet.getString("notice"));
-            loadedEmployee.setSalaryforhour(resultSet.getInt("salary_for_hour"));
+            employee.setId(id);
+            employee.setName(resultSet.getString("name"));
+            employee.setSurname(resultSet.getString("surname"));
+            employee.setEmail(resultSet.getString("email"));
+            employee.setPerrmision(resultSet.getInt("perrmision"));
+            employee.setAddress(resultSet.getString("address"));
+            employee.setNotice(resultSet.getString("notice"));
+            employee.setSalaryForHour(resultSet.getInt("salary_for_hour"));
         }
-        return loadedEmployee;
+        return employee;
     }
 
     public void insert() throws SQLException {
-        String query = "INSERT INTO employees(name, surname, email, perrmision, address, notice, salary_for_hour) VALUES (?,?,?,?,?,?,?);";
+        String query = "INSERT INTO employees(name, surname, email, password, address, notice, salary_for_hour) VALUES (?,?,?,?,?,?,?);";
         PreparedStatement statement = DbUtil.getConn().prepareStatement(query, new String[]{"id"});
         statement.setString(1, getName());
         statement.setString(2, getSurname());
         statement.setString(3, getEmail());
-        statement.setInt(4, getPerrmision());
+        statement.setString(4, getPassword());
         statement.setString(5, getAddress());
         statement.setString(6, getNotice());
-        statement.setInt(7, getSalaryforhour());
+        statement.setInt(7, getSalaryForHour());
         statement.executeUpdate();
         ResultSet rs = statement.getGeneratedKeys();
         if (rs.next()) {
             setId(rs.getInt(1));
         }
-
     }
 
     public void update() throws SQLException {
-        String query = "UPDATE employees SET name=?, surname=?, email=?, perrmision=?, address=?, notice=?, salary_for_hour=? WHERE id=?;";
+        String query = "UPDATE employees SET name=?, surname=?, email=?, address=?, notice=?, salary_for_hour=? WHERE id=?;";
         PreparedStatement statement = DbUtil.getConn().prepareStatement(query);
         statement.setString(1, getName());
-        statement.setString(1, getSurname());
-        statement.setString(1, getEmail());
-        statement.setInt(1, getPerrmision());
-        statement.setString(1, getAddress());
-        statement.setString(1, getNotice());
-        statement.setInt(1, getSalaryforhour());
+        statement.setString(2, getSurname());
+        statement.setString(3, getEmail());
+        //statement.setInt(1, getPerrmision());
+        statement.setString(4, getAddress());
+        statement.setString(5, getNotice());
+        statement.setInt(6, getSalaryForHour());
+        statement.setInt(7, getId());
         statement.executeUpdate();
     }
 
@@ -117,14 +108,12 @@ public class EmployeesDAO extends Employees {
         }
 
     }
-    public void deleteById (int id) throws SQLException {
+    public static void deleteById (int id) throws SQLException {
         String query = "DELETE * FROM employees WHERE id=?;";
         PreparedStatement statement = DbUtil.getConn().prepareStatement(query);
         statement.setInt(1,id);
         statement.executeUpdate();
     }
-
-
 }
 
 
