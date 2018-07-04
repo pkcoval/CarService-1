@@ -11,13 +11,13 @@ public class Orders {
     private String descriptionFault;
     private String nextServiceDate;
     private String descriptionRepair;
-    private int employee_id ;
-    private int vehicles_id ;
-    private int status_id ;
-    private double costForCustomer ;
-    private double costParts ;
-    private double salaryForHour ;
-    private int amountOfHour ;
+    private int employee_id;
+    private int vehicles_id;
+    private int status_id;
+    private double costForCustomer;
+    private double costParts;
+    private double salaryForHour;
+    private int amountOfHour;
 
     public Orders() {
     }
