@@ -5,6 +5,7 @@ import pl.coderslab.DbUtil;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -82,8 +83,13 @@ public class VehiclesDAO extends Vehicles {
         sql.setInt(3, getProductionYear());
         sql.setString(4, getRegNumber());
         sql.setDate(5, getNextServiceDate());
-        sql.setInt(6, getCustomer_id());
-        sql.executeUpdate();
+        if (getCustomer_id()!=0) {
+            sql.setInt(6, getCustomer_id());
+        } else {
+            sql.setNull(6, Types.INTEGER);
+            System.out.println("tutaj");
+        }
+        System.out.println(sql.executeUpdate());
         ResultSet rs = sql.getGeneratedKeys();
         if (rs.next()) {
             setId(rs.getInt(1));
@@ -96,5 +102,15 @@ public class VehiclesDAO extends Vehicles {
         PreparedStatement sql = DbUtil.getConn().prepareStatement(query);
         sql.setInt(1, id);
         sql.executeUpdate();
+    }
+
+    public void assignCustomer (int customerId) throws SQLException {
+
+        String query = "UPDATE vehicles SET customer_id=? WHERE id=?";
+        PreparedStatement sql = DbUtil.getConn().prepareStatement(query, new String[]{"id"});
+        sql.setInt(1, customerId);
+        sql.setInt(2, getId());
+        sql.executeUpdate();
+
     }
 }

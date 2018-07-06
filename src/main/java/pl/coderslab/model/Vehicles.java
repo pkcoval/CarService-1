@@ -82,6 +82,10 @@ public class Vehicles {
         this.customer_id = customer_id;
     }
 
+    public void setCustomer_id() {
+
+    }
+
     @Override
     public String toString() {
         return "Vehicles{" +

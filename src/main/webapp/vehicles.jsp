@@ -89,6 +89,12 @@
                             <button name="save" type="submit" value="${vehicle.id}">Zapisz</button>
                         </td>
                     </form>
+                    <td style="text-align: center">
+                        <form method='post' action='/addCustomerToVehicle'>
+                            <button name="vehicleId" type="submit" value="${vehicle.id}">Przypisz Klienta</button>
+                        </form>
+                    </td>
+
                 </tr>
             </table>
         </div>

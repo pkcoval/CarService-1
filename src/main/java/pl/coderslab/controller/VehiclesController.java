@@ -56,7 +56,11 @@ public class VehiclesController extends HttpServlet {
             vehicle.setProductionYear(Integer.parseInt(request.getParameter("productionYear")));
             vehicle.setRegNumber(request.getParameter("regNumber"));
             vehicle.setNextServiceDate(Date.valueOf(request.getParameter("nextServiceDate")));
-            vehicle.setCustomer_id(Integer.parseInt(request.getParameter("customer_id")));
+            try {
+                vehicle.setCustomer_id(Integer.parseInt(request.getParameter("customer_id")));
+            } catch (Exception e) {
+                vehicle.setCustomer_id();
+            }
             try {
                 ((VehiclesDAO) vehicle).saveToDB();
                 response.sendRedirect("/vehicles");
