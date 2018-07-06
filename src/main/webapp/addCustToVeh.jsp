@@ -9,18 +9,16 @@
 --%>
 <%@ include file="/fragments/header.jsp" %>
 
-<br>
 <%--showAll--%>
-<div>
+<div class="container">
     <c:if test="${not empty customers}">
-        <div style="margin-left: 25%; margin-right: 25%">
             <table border="1">
                 <tr>
-                    <th style="width: 30px; text-align: center">Id</th>
-                    <th style="width: 300px; text-align: center">Imie</th>
-                    <th style="width: 300px; text-align: center">Nazwisko</th>
-                    <th style="width: 300px; text-align: center">Data urodzenia</th>
-                    <th style="width: 300px; text-align: center">Przypisz</th>
+                    <th style="text-align: center">Id</th>
+                    <th style="text-align: center">Imie</th>
+                    <th style="text-align: center">Nazwisko</th>
+                    <th style="text-align: center">Data urodzenia</th>
+                    <th style="text-align: center">Przypisz</th>
                 </tr>
                 <c:forEach items="${customers}" var="customer">
                     <tr style="height: 10px">
@@ -37,11 +35,7 @@
                     </tr>
                 </c:forEach>
             </table>
-        </div>
     </c:if>
 </div>
 
 <%@ include file="/fragments/footer.jsp" %>
-
-
-
