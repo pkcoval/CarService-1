@@ -16,6 +16,7 @@ public class Vehicles {
     public Vehicles() {
     }
 
+
     public Vehicles(String model, String brand, int productionYear, String regnumber, Date nextservicedate, int customer_id) {
         this.model = model;
         this.brand = brand;
@@ -23,6 +24,8 @@ public class Vehicles {
         this.regNumber = regnumber;
         this.nextServiceDate = nextservicedate;
         this.customer_id = customer_id;
+
+
     }
 
     public void setId(int id) { this.id = id; }
@@ -79,4 +82,16 @@ public class Vehicles {
         this.customer_id = customer_id;
     }
 
+    @Override
+    public String toString() {
+        return "Vehicles{" +
+                "id=" + id +
+                ", model='" + model + '\'' +
+                ", brand='" + brand + '\'' +
+                ", productionYear=" + productionYear +
+                ", regNumber='" + regNumber + '\'' +
+                ", nextServiceDate=" + nextServiceDate +
+                ", customer_id=" + customer_id +
+                '}';
+    }
 }

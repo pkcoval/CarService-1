@@ -50,4 +50,14 @@ public class Customers {
         this.surname = surname;
         this.birthday = birtday;
     }
+
+    @Override
+    public String toString() {
+        return "Customers{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", birthday=" + birthday +
+                '}';
+    }
 }

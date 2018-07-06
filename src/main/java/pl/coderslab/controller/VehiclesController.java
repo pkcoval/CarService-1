@@ -1,5 +1,7 @@
 package pl.coderslab.controller;
 
+import pl.coderslab.model.VehCust;
+import pl.coderslab.model.VehCustDAO;
 import pl.coderslab.model.Vehicles;
 import pl.coderslab.model.VehiclesDAO;
 
@@ -73,8 +75,8 @@ public class VehiclesController extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            List<Vehicles> vehicles = VehiclesDAO.loadAll();
-            request.setAttribute("vehicles", vehicles);
+            List<VehCust> vehCusts = VehCustDAO.loadAll();
+            request.setAttribute("vehCusts", vehCusts);
             request.getRequestDispatcher("/vehicles.jsp").forward(request, response);
         } catch (SQLException e) {
             e.printStackTrace();

@@ -12,7 +12,7 @@
 <br>
 <%--showAll--%>
 <div>
-    <c:if test="${not empty vehicles}">
+    <c:if test="${not empty vehCusts}">
         <div style="margin-left: 25%; margin-right: 25%">
             <table border="1">
                 <tr>
@@ -22,27 +22,29 @@
                     <th style="width: 300px; text-align: center">Rok produkcji</th>
                     <th style="width: 300px; text-align: center">Numer rejestracyjny</th>
                     <th style="width: 300px; text-align: center">Następny serwis</th>
-                    <th style="width: 300px; text-align: center">Klient</th>
+                    <th style="width: 300px; text-align: center">Imię klienta</th>
+                    <th style="width: 300px; text-align: center">Nazwisko klienta</th>
                     <th style="width: 300px; text-align: center"></th>
                     <th style="width: 300px; text-align: center"></th>
                 </tr>
-                <c:forEach items="${vehicles}" var="vehicle">
+                <c:forEach items="${vehCusts}" var="vehCust">
                     <tr style="height: 10px">
-                        <td style="text-align: center">${vehicle.id}</td>
-                        <td style="text-align: center">${vehicle.model}</td>
-                        <td style="text-align: center">${vehicle.brand}</td>
-                        <td style="text-align: center">${vehicle.productionYear}</td>
-                        <td style="text-align: center">${vehicle.regNumber}</td>
-                        <td style="text-align: center">${vehicle.nextServiceDate}</td>
-                        <td style="text-align: center">${vehicle.customer_id}</td>
+                        <td style="text-align: center">${vehCust.vehicles.id}</td>
+                        <td style="text-align: center">${vehCust.vehicles.model}</td>
+                        <td style="text-align: center">${vehCust.vehicles.brand}</td>
+                        <td style="text-align: center">${vehCust.vehicles.productionYear}</td>
+                        <td style="text-align: center">${vehCust.vehicles.regNumber}</td>
+                        <td style="text-align: center">${vehCust.vehicles.nextServiceDate}</td>
+                        <td style="text-align: center">${vehCust.customers.name}</td>
+                        <td style="text-align: center">${vehCust.customers.surname}</td>
                         <td style="text-align: center">
                             <form method="post" action="vehicles">
-                                <button name="edit" type="submit" value="${vehicle.id}">Edytuj</button>
+                                <button name="edit" type="submit" value="${vehCust.vehicles.id}">Edytuj</button>
                             </form>
                         </td>
                         <td style="text-align: center">
                             <form method="post" action="vehicles">
-                                <button name="del" type="submit" value="${vehicle.id}">Usuń</button>
+                                <button name="del" type="submit" value="${vehCust.vehicles.id}">Usuń</button>
                             </form>
                         </td>
                     </tr>
