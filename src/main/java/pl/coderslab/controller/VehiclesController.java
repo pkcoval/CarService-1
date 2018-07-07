@@ -59,14 +59,15 @@ public class VehiclesController extends HttpServlet {
             try {
                 vehicle.setCustomer_id(Integer.parseInt(request.getParameter("customer_id")));
             } catch (Exception e) {
-                vehicle.setCustomer_id();
+                vehicle.setCustomer_id(0);
             }
             try {
                 ((VehiclesDAO) vehicle).saveToDB();
                 response.sendRedirect("/vehicles");
             } catch (SQLException e) {
-                response.getWriter().append("Nie udało się zapisać");
-                request.getRequestDispatcher("/vehicles.jsp");
+                e.printStackTrace();
+                //response.getWriter().append("Nie udało się zapisać");
+                //request.getRequestDispatcher("/vehicles.jsp");
             }
         }
 

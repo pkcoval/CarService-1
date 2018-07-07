@@ -27,7 +27,7 @@
                         <td style="text-align: center">${customer.surname}</td>
                         <td style="text-align: center">${customer.birthday}</td>
                         <td style="text-align: center">
-                            <form method="post" action="">
+                            <form method="post" action="addCustomerToVehicle">
                                 <input type="hidden" name="vehicleId" value="${vehicleId}"/>
                                 <button name="customerId" type="submit" value="${customer.id}">Przypisz</button>
                             </form>

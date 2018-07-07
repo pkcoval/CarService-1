@@ -70,7 +70,11 @@ public class VehiclesDAO extends Vehicles {
         sql.setInt(3, getProductionYear());
         sql.setString(4, getRegNumber());
         sql.setDate(5, getNextServiceDate());
-        sql.setInt(6, getCustomer_id());
+       // if (getCustomer_id()!=0) {
+            sql.setInt(6, getCustomer_id());
+        //} else {
+            sql.setNull(6, Types.INTEGER);
+       // }
         sql.setInt(7, getId());
         sql.executeUpdate();
     }
@@ -87,9 +91,8 @@ public class VehiclesDAO extends Vehicles {
             sql.setInt(6, getCustomer_id());
         } else {
             sql.setNull(6, Types.INTEGER);
-            System.out.println("tutaj");
         }
-        System.out.println(sql.executeUpdate());
+        sql.executeUpdate();
         ResultSet rs = sql.getGeneratedKeys();
         if (rs.next()) {
             setId(rs.getInt(1));

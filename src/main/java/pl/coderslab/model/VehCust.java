@@ -1,11 +1,31 @@
 package pl.coderslab.model;
 
+import java.util.List;
+
 public class VehCust {
 
     private Vehicles vehicles;
     private Customers customers;
+    private List<Vehicles> vehiclesList;
+    private List<Customers> customersList;
 
     public VehCust() {
+    }
+
+    public List<Vehicles> getVehiclesList() {
+        return vehiclesList;
+    }
+
+    public void setVehiclesList(List<Vehicles> vehiclesList) {
+        this.vehiclesList = vehiclesList;
+    }
+
+    public List<Customers> getCustomersList() {
+        return customersList;
+    }
+
+    public void setCustomersList(List<Customers> customersList) {
+        this.customersList = customersList;
     }
 
     public Vehicles getVehicles() {

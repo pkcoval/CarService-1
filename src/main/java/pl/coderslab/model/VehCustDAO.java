@@ -13,7 +13,7 @@ public class VehCustDAO extends VehCust {
     public static List<VehCust> loadAll() throws SQLException {
 
         List<VehCust> vehCusts = new ArrayList<>();
-        String query = "SELECT * FROM vehicles AS veh JOIN customers AS cust on veh.customer_id = cust.id;";
+        String query = "SELECT * FROM vehicles AS veh LEFT JOIN customers AS cust on veh.customer_id = cust.id;";
         PreparedStatement sql = DbUtil.getConn().prepareStatement(query);
         ResultSet rs = sql.executeQuery();
 
@@ -28,14 +28,12 @@ public class VehCustDAO extends VehCust {
             vehicle.setProductionYear(rs.getInt("veh.productionyear"));
             vehicle.setRegNumber(rs.getString("veh.regnumber"));
             vehicle.setNextServiceDate(rs.getDate("veh.nextservicedate"));
-            //vehicle.setCustomer_id(rs.getInt("customer_id"));
             vehCust.setVehicles(vehicle);
 
             Customers customer = new Customers();
             customer.setName(rs.getString("cust.name"));
             customer.setSurname(rs.getString("cust.surname"));
             vehCust.setCustomers(customer);
-
             vehCusts.add(vehCust);
 
         }
