@@ -5,6 +5,8 @@ PROJEKT STRONY INTERNETOWEJ OBSŁGUJĄCEJ WYNAJMOWANIE DOMKÓW:
 FUNKCJONALNOSCI:
 
 -Dodawanie, edytowanie i usuwanie pracowników, zleceń, pojazdów i klientów
+
+-Przypisywanie pracowników i klientów do zlecenia
  
 
 
