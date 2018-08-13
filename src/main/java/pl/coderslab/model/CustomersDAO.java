@@ -43,6 +43,7 @@ public class CustomersDAO extends Customers {
             customers.add(customer);
         }
         return customers;
+
     }
 
     public void saveToDB() throws SQLException {

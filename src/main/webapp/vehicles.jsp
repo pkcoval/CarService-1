@@ -11,6 +11,7 @@
 
 <%--showAll--%>
 <div class="container">
+
     <c:if test="${not empty vehCusts}">
         <table border="1">
             <tr>

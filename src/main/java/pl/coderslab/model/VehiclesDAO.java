@@ -57,6 +57,7 @@ public class VehiclesDAO extends Vehicles {
             insert();
         } else {
             update();
+
         }
     }
 

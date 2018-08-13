@@ -12,6 +12,7 @@ public class Status {
     public Status() {
     }
 
+
     public Status(String typ) {
         this.typ = typ;
     }

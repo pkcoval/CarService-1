@@ -11,6 +11,7 @@
 
 <%--showAll--%>
 <div class="container">
+
     <c:if test="${not empty customers}">
             <table border="1">
                 <tr>
@@ -36,6 +37,7 @@
                 </c:forEach>
             </table>
     </c:if>
+
 </div>
 
 <%@ include file="/fragments/footer.jsp" %>

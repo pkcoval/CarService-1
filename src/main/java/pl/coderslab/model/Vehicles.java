@@ -14,6 +14,7 @@ public class Vehicles {
     private int customer_id;
 
     public Vehicles() {
+
     }
 
 

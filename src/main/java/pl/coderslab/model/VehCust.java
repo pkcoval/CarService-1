@@ -10,6 +10,7 @@ public class VehCust {
     private List<Customers> customersList;
 
     public VehCust() {
+
     }
 
     public List<Vehicles> getVehiclesList() {

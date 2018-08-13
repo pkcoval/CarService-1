@@ -11,6 +11,7 @@ public class Customers {
     private Date birthday;
 
     public Customers() {
+
     }
 
     public void setId(int id) {

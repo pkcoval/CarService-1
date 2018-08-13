@@ -6,4 +6,5 @@ public class CustomerVehicle {
     private Vehicles vehicle;
 
 
+
 }

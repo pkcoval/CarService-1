@@ -64,7 +64,6 @@
     </form>
     </div>
 
-
 </div>
 
 <%--<div class="collapse navbar-collapse" id="mainNavigation">--%>
