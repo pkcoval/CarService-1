@@ -62,7 +62,7 @@
     <form>
     <input type="button" value="Klienci" onclick="window.location.href='/customers'"/>
     </form>
-    </div>
+    </div
 
 </div>
 

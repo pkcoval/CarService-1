@@ -19,7 +19,6 @@ public class Orders {
     private int amountOfHour;
 
     public Orders() {
-
     }
 
     public int getId() {

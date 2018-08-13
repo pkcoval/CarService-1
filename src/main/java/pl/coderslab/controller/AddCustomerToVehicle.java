@@ -23,7 +23,6 @@ public class AddCustomerToVehicle extends HttpServlet {
             customerId = Integer.parseInt(request.getParameter("customerId"));
         } catch (Exception e) {
         }
-
         if (customerId != 0) {
             VehiclesDAO vehicle = new VehiclesDAO();
             System.out.println(customerId);

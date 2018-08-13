@@ -20,7 +20,6 @@ public class Employees {
     private String notice;
     private int salaryForHour;
 
-
     public int getId() {
         return id;
     }

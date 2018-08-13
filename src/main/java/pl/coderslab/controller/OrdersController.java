@@ -70,7 +70,6 @@ public class OrdersController extends HttpServlet {
             }
         }
 
-
         if (add != null && !add.isEmpty()) {
 
             request.setAttribute("addinfo", add);

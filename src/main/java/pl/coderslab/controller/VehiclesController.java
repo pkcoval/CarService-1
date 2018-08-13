@@ -43,7 +43,6 @@ public class VehiclesController extends HttpServlet {
             }
         }
 
-
         if (save != null && !save.isEmpty()) {
 
             Vehicles vehicle = new VehiclesDAO();

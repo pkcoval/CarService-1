@@ -19,7 +19,6 @@ public class VehCustDAO extends VehCust {
 
         while (rs.next()) {
 
-
             VehCust vehCust = new VehCust();
 
             Vehicles vehicle = new Vehicles();

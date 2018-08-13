@@ -31,7 +31,6 @@ public class CustomerController extends HttpServlet {
             }
         }
 
-
         if (edit != null && !edit.isEmpty()) {
             try {
                 Customers customer = CustomersDAO.loadById(Integer.parseInt(edit));
